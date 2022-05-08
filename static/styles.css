@@ -1,0 +1,228 @@
+body{
+    background-color: rgb(238, 242, 248);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#form{
+
+    padding: 0% 30%;
+
+}
+.input-text{
+    display: flex;
+    flex: auto;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    flex: auto;
+    border: 2px solid #414141;
+    border-radius: 5px;
+    justify-content: center;
+    width: 100%;
+}
+
+p{
+    padding: 10px;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #D6EEEE;
+    
+  }
+
+.inner{
+    float: left;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: inherit; 
+    border: 2px solid rgb(0, 0, 0);
+    padding: 10px;
+    margin: 10px;
+    width: 45%;
+}
+
+.imagen{
+    width: 65px;
+    height: 65px;
+    float: left;   
+    padding: 0 10px 0 220px;
+}
+
+.intro{
+    font-size: 15px;
+    margin: 20px;
+}
+#banner> h1{
+    padding-left:25%;
+}
+
+#banner{
+    display: flex;
+    flex-direction: row;
+    flex:auto;
+    background-color: rgb(114, 142, 202);
+    color: black;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 35px 0px 0 0px;
+    text-align: center;
+    background-size: cover;
+    width: 100%;
+    
+}
+
+
+
+button{
+    float:left;
+    background-color: white;
+    color: black;
+    border: 2px solid #4779b3;
+    font-size: 16px;
+    padding: 12px 28px;
+    border-radius: 4px;
+    transition-duration: 0.4s;
+    text-align: center;
+    align-items: center;
+    margin:5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #4779b3;
+    color: white;
+    border: 2px solid #414141;
+  }
+
+textarea {
+    width: 40%;
+    max-width: 75%;
+}
+#docpicker{
+    width: 40%;
+    max-width: 60%;
+}
+
+#submit{
+    display: flex;
+    flex-direction: column-reverse;
+    padding-top: 20px;
+}
+
+#download{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    border: 1px solid black;
+}
+#download-btn{
+    width: 40%;
+    margin: 10px 30%;
+
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: rgb(158, 162, 168);
+    margin-top: 20px;
+    bottom: 0;
+    width: 100%;
+    font-size: 10px;
+}
+
+
+/*start*/
+nav{
+    display: flex;
+    height: 50px;
+    width: 100%;
+    flex: auto;
+    background: #1b1b1b;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0px 0 0px;
+    flex-wrap: wrap;
+  }
+
+  nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+  }
+  nav ul li{
+    margin: 0 5px;
+  }
+  nav ul li a{
+    color: #f2f2f2;
+    padding: 5px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 400;
+    transition: all 0.3s ease;
+  }
+  nav ul li a.active,
+  nav ul li a:hover{
+    color: #111;
+    background: rgb(255, 255, 255);
+  } 
+
+
+
+ 
+  .progressbarWrapper {
+    height: 30px;
+    width: 500px;
+    max-width: 80%;
+    display: block;
+    margin: auto;
+    margin-top: 2px;
+    position: relative;
+    background: #555;
+    padding: 3px;
+    box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+  }
+  
+  #greenBar {
+    display: block;
+    height: 100%;
+    width: 0px;
+    background-color: rgb(43, 194, 83);
+    background-image: linear-gradient(
+      center bottom,
+      rgb(43, 194, 83) 37%,
+      rgb(84, 240, 84) 69%
+    );
+    position: relative;
+    overflow: hidden;
+    font-size: 15px;
+    text-align: center;
+    color: white;
+    transition: all 700ms ease;
+  }
+  
+
+  div#loading {
+    width: 200px;
+    height: 200px;
+    margin-left: 40% ;
+    margin-top: 10;
+    display: none;
+    background-color: none;
+    background: url(/static/loading.gif) no-repeat;
+    cursor: wait;
+    }
+
+  #start_f, #start_t{
+    width: 99%;
+    align-items: center;
+  }
+
+.contact{
+  display: flex;
+  flex-direction:column ;
+  margin: 5%;
+  padding: 7%;
+  border: #111 solid;
+  border-width: 1px;
+
+}

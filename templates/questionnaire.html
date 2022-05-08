@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation Extraction Module</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div id= "banner">
+        <h1>Named Entity Translation Extraction Module</h1>
+        <img class="imagen" src="https://svgsilh.com/svg/1079880.svg" alt="Flowers in Chania">
+    </div>
+    
+    <nav>
+
+        <ul>
+            <li><a class="active" href="{{url_for('index')}}">Home</a></li>
+            <li><a href="#">Questionnaire</a></li>
+            <li><a href="{{url_for('contact')}}">Contact</a></li>
+        </ul>      
+    </nav>
+        
+
+    <div class="intro" >
+        <p>This is a Named Entity Recognition system and translation extrator for the biomedical domain.
+        <br>
+    </div>
+    <div class="form">
+        <iframe class = "frame" src="https://docs.google.com/forms/d/e/1FAIpQLSckXgqgYMh3NWl-IHw5GvhASaEOxrurf96mzILPgmtUFN9-ZQ/viewform?embedded=true" width="1300" height="1024" frameborder="0" >Cargando…</iframe>
+    </div>
+    
+</body>
+</html>

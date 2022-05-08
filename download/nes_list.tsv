@@ -1,0 +1,17 @@
+intracellular	GENE	Intracelular
+proteins	Chemical	Proteínas
+mitochondria	GENE	Mitocondrias
+mitochondrial	GENE	Mitocondrial
+protein	Chemical	Proteína
+cytoplasmic	GENE	Citoplasma
+molecular	Chemical	Molecular
+matrix	GENE	Matriz
+sequence	Sequence	Secuencia
+amino termini	Sequence	amino termini proceso/secuencia
+Tom70	Protein	tom70 proteína
+mitochondrial outer membrane receptor	GENE	receptor de membrana externa mitocondrial gen
+Tom5	Protein	tom5
+Tom40	Protein	tom40
+outer membrane protein translocation	GENE	translocación de proteínas de membrana externa gen
+Tim23	Protein	tim23 proteína
+inner membrane	GENE	membrana interna

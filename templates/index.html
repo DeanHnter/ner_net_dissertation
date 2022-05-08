@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation Extraction Module</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"> </script>
+    <!--<script type=text/javascript> $(function() { $("#start_f").click(function (event) { $.getJSON('/finalfunc_f', { },
+    function(data) { }); return false; }); }); </script> 
+    <script type=text/javascript> $(function() { $("#start_t").click(function (event) { $.getJSON('/finalfunc_t', { },
+    function(data) { }); return false; }); }); </script> -->
+    <link rel="shortcut icon" href="/favicon.ico" />
+</head>
+<body >
+
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+               <p style="font-style: italic;">  {{ message }} </p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div id= "banner">
+        <h1>Named Entity Translation Extraction Module</h1>
+        <img class="imagen" src="https://svgsilh.com/svg/1079880.svg" alt="Biomedicine">
+    </div>
+    
+    <nav>
+
+        <ul>
+            <li><a class="active" href="#">Home</a></li>
+            <li><a href="{{ url_for('questionnaire')}}">Questionnaire</a></li>
+            <li><a href="{{url_for('contact')}}">Contact</a></li>
+        </ul>      
+    </nav>
+        
+
+    <div class="intro" >
+        <p style="text-align: left;">This is a Named Entity Recognition system and translation extrator for the biomedical domain.
+        <br>The execution time depends on the difficulty of your text. The average is 17 seconds per entity.
+
+        <br>This module is capable of identifying Genes, Proteins, Taxon, Sequence, Chemical, and Cell vocabulary.
+
+        <br>This module will: </p>
+        <ol>
+            <li>Read your file or input text.</li>
+            <li>Identify the Named Entities in your text.</li>
+            <li>Search for documents in Spanish  in search engines.</li>
+            <li>Access the websites and extract translation candidates.</li>
+            <li>Score the translation candidates to select the best one.</li>
+        </ol>
+    
+        
+    </div>
+
+    <section class="major">
+        <div class="inner">
+            <header>
+                <p>To start, select a file either in .doc or .pdf formats, or paste the text in the box below.
+                <br>
+                    Add your file or paste the text to be analysed.</p>
+            </header>
+            <div id="ma" class="content">
+                <div>
+                    <button id="file" class="option">File</button>
+                </div>
+                <div>
+                    <button id="text" class="option">Text</button>
+                </div>
+                <br>
+            </div>
+            <br>
+
+            <form method="POST" enctype=multipart/form-data action="http://localhost:5000/upload" id="doc"> 
+                <input type="file" id="docpicker" class="input-text" name="file"
+                accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document, .pdf"> 
+                <button type="submit" value="Submit" onclick="loading()">Submit</button>
+            </form>
+
+            <form method="POST" id="texto" style="display:none" action="/uploadtext">
+                    <textarea class="input-text" name="texti" id="pastetext" cols="40" rows="20" 
+                    placeholder= "Paste your text" ></textarea>
+                    <button type="submit" value="Submit" onclick="loading2()">Submit</button>           
+            </form>   
+            <br>             
+        </div>
+
+    </section>
+
+    <section>
+        <div class="inner">
+            
+            <!--<form  id="content" action="/finalfunc_f">
+                <button type = "submit" id = "start_f"  onclick="loading()">Click here to start the analysis</button>
+            </form>
+            <form id="content2" action="/finalfunc_t">  
+                <button type = "submit" id = "start_t" style="display:none" onclick="loading2()">Click here to start the analysis</button>
+            </form>  
+        -->
+           
+
+            <div class="results" >
+                <p style="text-align: left;">This are the NER results along with translation
+                    <br><br>Total NEs: {{num_nes}}<br><br>
+                    {% if filename%}
+                        File name: {{ filename[:-4] }}
+                    {%endif%} 
+               
+                </p>
+               
+            </div>
+            
+            <table>
+                
+                <tr>
+                    <th>NE</th>
+                    <th>Tag</th>
+                    <th>Translation</th>
+                </tr>
+                {% for ne in list_final %}
+                <tr>  
+                    <td>{{ne[0]}}</td>
+                    <td>{{ne[1]}}</td>
+                    <td>{{ne[2]}}</td>
+                </tr>
+                {% endfor %}
+               
+            </table>
+            <div id="loading"></div> 
+        </div>
+    </section>
+
+    <form id="download" action="/download">
+        <p>Download Result</p>
+        <button id="download-btn">Download TSV</button>
+    </form>
+
+    <div class="navbar">
+        <p>Created as part of a dissertation project for the European Masters in Technology for Translation and Interpretation
+            | University of Wolverhampton | Universidad de Málaga.
+        </p>
+    </div>
+
+</body>
+
+<script type="text/javascript">
+    document.getElementById("file").onclick = function() {
+
+        document.getElementById("doc").style.display = "block";
+        document.getElementById("texto").style.display = "none";
+        document.getElementById("start_f").style.display = "block";
+        document.getElementById("start_t").style.display = "none";
+
+    }
+
+    document.getElementById("text").onclick = function() {
+
+        document.getElementById("doc").style.display = "none";
+        document.getElementById("texto").style.display = "block";
+        document.getElementById("start_t").style.display = "block";
+        document.getElementById("start_f").style.display = "none";
+
+    
+    }
+</script>
+<script type="text/javascript">// <![CDATA[
+    function loading(){
+        $("#loading").show();
+        $("#doc").hide();       
+    }
+// ]]></script>
+<script type="text/javascript">// <![CDATA[
+    function loading2(){
+        $("#loading").show();
+        $("#texto").hide();       
+    }
+// ]]></script>
+
+ <!--<script type=text/javascript> 
+    $(function() { 
+        $("#start_f").click(function (event) 
+        { $.getJSON('/finalfunc_f', { },
+    function(data) { }); return false; }); }); </script> -->
+
+<script type="text/javascript">
+    window.addEventListener('beforeunload', function (e) {
+        $.getJSON('/bye', { },
+        function(data) { }); return 'All files will be deleted. Are you sure?'; });
+</script>
+
+</html>

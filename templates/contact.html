@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation Extraction Module</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="C:/Users/Steven/Documents/spam/translationmodulePython/translation_module/css/styles.css">  
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div id= "banner">
+        <h1>Named Entity Translation Extraction Module</h1>
+        <img class="imagen" src="https://svgsilh.com/svg/1079880.svg" alt="Flowers in Chania">
+    </div>
+    
+    <nav>
+
+        <ul>
+            <li><a class="active" href="{{ url_for('index')}}">Home</a></li>
+            <li><a href="{{ url_for('questionnaire')}}">Questionnaire</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>      
+    </nav>
+    <table class="contact">
+        <tr>
+            <td>Name: </td>
+            <td>Steven Lancheros</td>
+        </tr>
+        <tr>
+            
+            <td>University of Wolverhampton</td>
+        
+            <td>Universidad de Málaga</td>
+        </tr>
+        <tr>
+            <td>Email: </td>
+            <td>b.s.lancherosrincon@wlv.ac.uk</td>
+        </tr>
+    </table>
+
+</body>
+</html>
